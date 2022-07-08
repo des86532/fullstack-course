@@ -73,7 +73,7 @@ const App = () => {
       setMessage(`Updated ${res.name}`)
     }).catch((err) => {
       setMessageType('error')
-      setMessage(`Information of ${name} has already been removed from server`)
+      setMessage(err.response.data.error)
       getPersons()
     })
   }
@@ -85,7 +85,7 @@ const App = () => {
       setMessage(`Deleted ${name}`)
     }).catch((err) => {
       setMessageType('error')
-      setMessage(`Information of ${name} has already been removed from server`)
+      setMessage(err.response.data.error)
       getPersons()
     })
   }
