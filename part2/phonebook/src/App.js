@@ -59,6 +59,9 @@ const App = () => {
       setPersons([...persons, res])
       setMessageType('success')
       setMessage(`Added ${res.name}`)
+    }).catch((err) => {
+      setMessageType('error')
+      setMessage(err.response.data.error)
     })
   }
 
@@ -90,6 +93,9 @@ const App = () => {
   const getPersons = () => {
     personService.getAll().then((res) => {
       setPersons(res)
+    }).catch(err => {
+      setMessageType('error')
+      setMessage(err.response.data.error)
     })
   }
 
